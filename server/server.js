@@ -1,20 +1,16 @@
-// server.js - Main server file for the MERN blog application
+require('dotenv').config(); // ✅ Load environment variables first
 
-// Import required modules
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const dotenv = require('dotenv');
 const path = require('path');
+
+console.log('✅ MONGODB_URI:', process.env.MONGODB_URI); // ✅ This should now print your connection string
 
 // Import routes
 const postRoutes = require('./routes/posts');
 const categoryRoutes = require('./routes/categories');
 const authRoutes = require('./routes/auth');
-
-// Load environment variables
-dotenv.config();
-
 // Initialize Express app
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -25,7 +21,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve uploaded files
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+
 
 // Log requests in development mode
 if (process.env.NODE_ENV === 'development') {
