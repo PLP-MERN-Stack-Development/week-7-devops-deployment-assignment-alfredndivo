@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
 
-console.log('✅ MONGODB_URI:', process.env.MONGODB_URI); // ✅ This should now print your connection string
+console.log('✅ MONGODB_URI:', process.env.MONGODB_URI);
 
 // Import routes
 const postRoutes = require('./routes/posts');
@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve uploaded files
-app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 
 
 // Log requests in development mode
