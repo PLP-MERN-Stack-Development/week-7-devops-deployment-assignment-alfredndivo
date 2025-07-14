@@ -106,3 +106,8 @@ cd ../client
 pnpm install
 pnpm dev
 
+
+## 🌐 Live URLs
+
+- Frontend: https://your-vercel-app.vercel.app  
+- Backend API: https://your-backend.onrender.com/api
